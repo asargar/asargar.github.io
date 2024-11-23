@@ -9,14 +9,15 @@
       "Education",
       "Skills",
       "Projects",
-      "Resume"
+      "Resume",
+      "Contact"
     ]
   },
   "about": {
     "firstName": "Amit",
     "lastName": "Sargar",
     "email": "amitsargar@gmail.com",
-    "aboutMe": "Hello, welcome to my professional profile. I have a Masters in Computer Applications from VJTI, Mumbai and currently working as a Consultant at Deloitte Consulting Pvt. Ltd with 4+ years of exeperiance as Full Stack Java Devloper.",
+    "aboutMe": "Hello, welcome to my professional profile. I have a Master of Computer Applications from VJTI, Mumbai, and I am currently working as an Associate Vice President at Deutsche Bank India with approximately 10 years of experience as a Full Stack Java Developer.",
     "socialProfiles": [
       {
         "name": "LinkedIn",
@@ -43,10 +44,21 @@
   "experience": {
     "list": [
       {
+        "title": "Assistant Vice President",
+        "company": "Deutsche Bank, Pune",
+        "start": "March, 2020",
+        "end": "Present",
+        "details": [
+          "As a Full Stack Developer, I handle development from Angular to Spring Boot and manage deployment as well.",
+          "Notably, I developed a generic, configuration-based dashboard adaptable for similar views with minimal effort.",
+          "Additionally, I have been involved in migration projects from OCP3 to OCP4 and disaster recovery strategy of applications"
+        ]
+      },
+      {
         "title": "Consultant",
         "company": "Deloitte Consulting, Mumbai",
         "start": "Aug, 2018",
-        "end": "Present",
+        "end": "Mar, 2020",
         "details": [
           "Got promoted to Consultant on fast track, as recognition to work towards client and extracurricular activities like <strong>represented Deloitte in Code Gladiator Finals</strong>.",
           "Got recognition and <strong>Applause Award</strong> for project contribution.",
@@ -60,7 +72,7 @@
         "start": "Dec, 2016",
         "end": "Aug, 2018",
         "details": [
-          "Represented Deloitte in largest coding contest Code Gladiator Finals in 2017 and 2018. Got the highest recognition award in Deloitte for the same. The 2017 coding event recognised by Guinness record for largest coding contest.",
+          "Represented Deloitte in largest coding contest Code Gladiator Finals in 2017 and 2018. Got the highest recognition award in Deloitte for the same. The 2017 coding event recognized by Guinness record for largest coding contest.",
           "Got recognition from Client as well as Deloitte for contribution towards client service.",
           "Development of various modules of the platform/ product for US based public sector client.",
           "Full stack development to enhance existing system to introduce new features."
@@ -73,7 +85,7 @@
         "end": "Dec, 2016",
         "details": [
           "Development and integration of various modules like Non-Performing Assets (NPA), Early Warning System (EWS) solutions for Banking client.",
-          "Responsible to design, devlope and optimize Rule Engine product, which was integral part of NPA and EWS solutions.",
+          "Responsible to design, develop and optimize Rule Engine product, which was integral part of NPA and EWS solutions.",
           "Migrating various modules from previous version of the product to new maven based OSGi system.",
           "Involved in the development of various POCs for client demos.",
           "Technologies & Frameworks: Java, Spring MVC, Hibernate, JBPM, SQL, HTML, CSS, JavaScript, Dojo, OSGi, AngularJS"
@@ -231,7 +243,7 @@
       },
       {
         "title": "Download Automation",
-        "description": "Tool to download thousands of files in a click. It helps user to download files from particular website, required by the ETL job.",
+        "description": "Tool to download thousands of files in a click. It helps user to download files from website, required by the ETL job.",
         "techList": [
           "java",
           "spring",
@@ -243,7 +255,7 @@
       },
       {
         "title": "Smart Search",
-        "description": "Introduced Smart Search functionaly to allow user to tag various resources like reports and dashboards as per requirement for instant search across the whole platform.",
+        "description": "Introduced Smart Search functionality to allow user to tag various resources like reports and dashboards as per requirement for instant search across the whole platform.",
         "techList": [
           "java",
           "spring",
@@ -254,6 +266,10 @@
         ]
       }
     ]
+  },
+  "contact": {
+    "action": "https://formspree.io/",
+    "formId": "xjvklygj"
   },
   "technologyMap": {
     "-description-": "Technology map to mention fontawesome classname or direct icon link for unsopported icons",
