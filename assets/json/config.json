@@ -28,16 +28,6 @@
         "name": "GitHub",
         "link": "https://github.com/asargar/",
         "class": "fab fa-github"
-      },
-      {
-        "name": "Twitter",
-        "link": "https://twitter.com/amitsargar/",
-        "class": "fab fa-twitter"
-      },
-      {
-        "name": "Instagram",
-        "link": "https://instagram.com/amit.sargar/",
-        "class": "fab fa-instagram"
       }
     ]
   },
