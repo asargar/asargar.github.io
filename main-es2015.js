@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\n  <div class=\"container p-0\">\n    <section class=\"resume-section p-3 p-lg-5 d-flex align-items-center\" id=\"education\">\n      <div class=\"w-100\">\n        <h2 class=\"mb-5\">Education</h2>\n        <div *ngFor=\"let education of data.list\"\n          class=\"resume-item d-flex flex-column flex-md-row justify-content-between mb-5\">\n          <div class=\"resume-content\">\n            <h3 class=\"mb-0\"><a target=\"_blank\" href=\"{{education?.website}}\">{{education.college}}</a></h3>\n            <div class=\"subheading mb-3\">{{education.course}}</div>\n            <!-- <div>Computer Science - Web Development Track</div> -->\n            <!-- <p>GPA: 3.23</p> -->\n          </div>\n          <div class=\"resume-date text-md-right\">\n            <span class=\"text-primary\">{{education.start}} - {{education.end}}</span>\n          </div>\n        </div>\n      </div>\n    </section>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n  <div class=\"container p-0\">\n    <section class=\"resume-section p-3 p-lg-5 d-flex align-items-center\" id=\"education\">\n      <div class=\"w-100\">\n        <h2 class=\"mb-5\">Education</h2>\n        <div *ngFor=\"let education of data\"\n          class=\"resume-item d-flex flex-column flex-md-row justify-content-between mb-5\">\n          <div class=\"resume-content\">\n            <h3 class=\"mb-0\"><a target=\"_blank\" href=\"{{education?.website}}\">{{education.college}}</a></h3>\n            <div class=\"subheading mb-3\">{{education.course}}</div>\n            <!-- <div>Computer Science - Web Development Track</div> -->\n            <!-- <p>GPA: 3.23</p> -->\n          </div>\n          <div class=\"resume-date text-md-right\">\n            <span class=\"text-primary\">{{education.start}} - {{education.end}}</span>\n          </div>\n        </div>\n      </div>\n    </section>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container p-0\">\n  <section class=\"resume-section p-3 p-lg-5 d-flex justify-content-center\" id=\"experience\">\n    <div class=\"w-100\">\n      <h2 class=\"mb-5\">Experience</h2>\n      <div *ngFor=\"let experience of data.list\"\n        class=\"resume-item d-flex flex-column flex-md-row justify-content-between mb-5\">\n        <div class=\"container\">\n          <h3 class=\"mb-0\">{{experience.title}}</h3>\n          <div class=\"d-flex flex-column bd-highlight mb-3\">\n            <div class=\"bd-highlight subheading\">{{experience.company}}</div>\n            <div class=\"bd-highlight text-primary\">{{experience.start}} - {{experience.end}}</div>\n          </div>\n          <ul>\n            <li *ngFor=\"let detail of experience.details\" [innerHTML]=\"detail\"></li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </section>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container p-0\">\n  <section class=\"resume-section p-3 p-lg-5 d-flex justify-content-center\" id=\"experience\">\n    <div class=\"w-100\">\n      <h2 class=\"mb-5\">Experience</h2>\n      <div *ngFor=\"let experience of data\"\n        class=\"resume-item d-flex flex-column flex-md-row justify-content-between mb-5\">\n        <div class=\"container\">\n          <h3 class=\"mb-0\">{{experience.title}}</h3>\n          <div class=\"d-flex flex-column bd-highlight mb-3\">\n            <div class=\"bd-highlight subheading\">{{experience.company}}</div>\n            <div class=\"bd-highlight text-primary\">{{experience.start}} - {{experience.end}}</div>\n          </div>\n          <ul>\n            <li *ngFor=\"let detail of experience.details\" [innerHTML]=\"detail\"></li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </section>\n</div>");
 
 /***/ }),
 
@@ -407,15 +407,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AboutComponent", function() { return AboutComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
 let AboutComponent = class AboutComponent {
-    constructor() { }
-    ngOnInit() {
-        this.data = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["about"];
+    constructor() {
+        this.data = _config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"].getConfig().about;
     }
 };
 AboutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -510,33 +508,35 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
   \*******************************/
-/*! exports provided: AppModule */
+/*! exports provided: initializeApp, AppModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initializeApp", function() { return initializeApp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-/* harmony import */ var angular_gtag__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular-gtag */ "./node_modules/angular-gtag/esm2015/angular-gtag.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _experience_experience_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./experience/experience.component */ "./src/app/experience/experience.component.ts");
-/* harmony import */ var _education_education_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./education/education.component */ "./src/app/education/education.component.ts");
-/* harmony import */ var _skills_skills_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./skills/skills.component */ "./src/app/skills/skills.component.ts");
-/* harmony import */ var _projects_projects_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./projects/projects.component */ "./src/app/projects/projects.component.ts");
-/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
-/* harmony import */ var _tech_list_tech_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./tech-list/tech-list.component */ "./src/app/tech-list/tech-list.component.ts");
-/* harmony import */ var _tech_config_pipe__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./tech-config.pipe */ "./src/app/tech-config.pipe.ts");
-/* harmony import */ var _resume_resume_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./resume/resume.component */ "./src/app/resume/resume.component.ts");
-/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var angular_gtag__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angular-gtag */ "./node_modules/angular-gtag/esm2015/angular-gtag.js");
+/* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./config.service */ "./src/app/config.service.ts");
+/* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
+/* harmony import */ var _education_education_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./education/education.component */ "./src/app/education/education.component.ts");
+/* harmony import */ var _experience_experience_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./experience/experience.component */ "./src/app/experience/experience.component.ts");
+/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
+/* harmony import */ var _projects_projects_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./projects/projects.component */ "./src/app/projects/projects.component.ts");
+/* harmony import */ var _resume_resume_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./resume/resume.component */ "./src/app/resume/resume.component.ts");
+/* harmony import */ var _skills_skills_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./skills/skills.component */ "./src/app/skills/skills.component.ts");
+/* harmony import */ var _tech_config_pipe__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./tech-config.pipe */ "./src/app/tech-config.pipe.ts");
+/* harmony import */ var _tech_list_tech_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./tech-list/tech-list.component */ "./src/app/tech-list/tech-list.component.ts");
 
 
 
@@ -558,39 +558,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+function initializeApp(configService) {
+    return () => { return configService.loadConfig().toPromise(); };
+}
 let AppModule = class AppModule {
     constructor(gtag) {
     }
 };
 AppModule.ctorParameters = () => [
-    { type: angular_gtag__WEBPACK_IMPORTED_MODULE_6__["Gtag"] }
+    { type: angular_gtag__WEBPACK_IMPORTED_MODULE_9__["Gtag"] }
 ];
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"],
-            _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_11__["NavBarComponent"],
-            _about_about_component__WEBPACK_IMPORTED_MODULE_16__["AboutComponent"],
-            _experience_experience_component__WEBPACK_IMPORTED_MODULE_12__["ExperienceComponent"],
-            _education_education_component__WEBPACK_IMPORTED_MODULE_13__["EducationComponent"],
-            _skills_skills_component__WEBPACK_IMPORTED_MODULE_14__["SkillsComponent"],
-            _projects_projects_component__WEBPACK_IMPORTED_MODULE_15__["ProjectsComponent"],
-            _tech_list_tech_list_component__WEBPACK_IMPORTED_MODULE_17__["TechListComponent"],
-            _tech_config_pipe__WEBPACK_IMPORTED_MODULE_18__["TechConfigPipe"],
-            _resume_resume_component__WEBPACK_IMPORTED_MODULE_19__["ResumeComponent"],
-            _contact_contact_component__WEBPACK_IMPORTED_MODULE_20__["ContactComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"],
+            _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_16__["NavBarComponent"],
+            _about_about_component__WEBPACK_IMPORTED_MODULE_10__["AboutComponent"],
+            _experience_experience_component__WEBPACK_IMPORTED_MODULE_15__["ExperienceComponent"],
+            _education_education_component__WEBPACK_IMPORTED_MODULE_14__["EducationComponent"],
+            _skills_skills_component__WEBPACK_IMPORTED_MODULE_19__["SkillsComponent"],
+            _projects_projects_component__WEBPACK_IMPORTED_MODULE_17__["ProjectsComponent"],
+            _tech_list_tech_list_component__WEBPACK_IMPORTED_MODULE_21__["TechListComponent"],
+            _tech_config_pipe__WEBPACK_IMPORTED_MODULE_20__["TechConfigPipe"],
+            _resume_resume_component__WEBPACK_IMPORTED_MODULE_18__["ResumeComponent"],
+            _contact_contact_component__WEBPACK_IMPORTED_MODULE_13__["ContactComponent"]
         ],
         imports: [
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
-            angular_gtag__WEBPACK_IMPORTED_MODULE_6__["GtagModule"].forRoot({ trackingId: 'UA-154148293-1', trackPageviews: true }),
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["BrowserModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatFormFieldModule"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatInputModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
+            angular_gtag__WEBPACK_IMPORTED_MODULE_9__["GtagModule"].forRoot({ trackingId: 'UA-154148293-1', trackPageviews: true }),
+            _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot([
                 {
                     path: '',
                     redirectTo: '/about',
@@ -598,37 +602,37 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 },
                 {
                     path: 'about',
-                    component: _about_about_component__WEBPACK_IMPORTED_MODULE_16__["AboutComponent"],
+                    component: _about_about_component__WEBPACK_IMPORTED_MODULE_10__["AboutComponent"],
                     data: { animation: 'HomePage' }
                 },
                 {
                     path: 'experience',
-                    component: _experience_experience_component__WEBPACK_IMPORTED_MODULE_12__["ExperienceComponent"],
+                    component: _experience_experience_component__WEBPACK_IMPORTED_MODULE_15__["ExperienceComponent"],
                     data: { animation: 'ExperiencePage' }
                 },
                 {
                     path: 'education',
-                    component: _education_education_component__WEBPACK_IMPORTED_MODULE_13__["EducationComponent"],
+                    component: _education_education_component__WEBPACK_IMPORTED_MODULE_14__["EducationComponent"],
                     data: { animation: 'EducationePage' }
                 },
                 {
                     path: 'skills',
-                    component: _skills_skills_component__WEBPACK_IMPORTED_MODULE_14__["SkillsComponent"],
+                    component: _skills_skills_component__WEBPACK_IMPORTED_MODULE_19__["SkillsComponent"],
                     data: { animation: 'SkillsPage' }
                 },
                 {
                     path: 'projects',
-                    component: _projects_projects_component__WEBPACK_IMPORTED_MODULE_15__["ProjectsComponent"],
+                    component: _projects_projects_component__WEBPACK_IMPORTED_MODULE_17__["ProjectsComponent"],
                     data: { animation: 'ProjectsPage' }
                 },
                 {
                     path: 'resume',
-                    component: _resume_resume_component__WEBPACK_IMPORTED_MODULE_19__["ResumeComponent"],
+                    component: _resume_resume_component__WEBPACK_IMPORTED_MODULE_18__["ResumeComponent"],
                     data: { animation: 'ResumesPage' }
                 },
                 {
                     path: 'contact',
-                    component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_20__["ContactComponent"],
+                    component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_13__["ContactComponent"],
                     data: { animation: 'ContactPage' }
                 },
                 {
@@ -639,10 +643,53 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 }
             ])
         ],
-        providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
+        providers: [{ provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["APP_INITIALIZER"], useFactory: initializeApp, deps: [_config_service__WEBPACK_IMPORTED_MODULE_12__["ConfigService"]], multi: true }],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/config.service.ts":
+/*!***********************************!*\
+  !*** ./src/app/config.service.ts ***!
+  \***********************************/
+/*! exports provided: ConfigService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigService", function() { return ConfigService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+var ConfigService_1;
+
+
+
+
+let ConfigService = ConfigService_1 = class ConfigService {
+    constructor(http) {
+        this.http = http;
+    }
+    loadConfig() {
+        return this.http.get('/assets/json/config.json').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(config => ConfigService_1.config = config));
+    }
+    static getConfig() {
+        return ConfigService_1.config;
+    }
+};
+ConfigService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+ConfigService = ConfigService_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ConfigService);
 
 
 
@@ -674,10 +721,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
@@ -687,7 +733,7 @@ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE_
 let ContactComponent = class ContactComponent {
     constructor(formBuilder, http) {
         this.http = http;
-        this.data = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3__["contact"];
+        this.data = _config_service__WEBPACK_IMPORTED_MODULE_5__["ConfigService"].getConfig().contact;
         this.disabledSubmitButton = true;
         this.isSaved = false;
         this.isSaving = false;
@@ -708,7 +754,7 @@ let ContactComponent = class ContactComponent {
         ;
     }
     handleError() {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["throwError"])(this.submitErrorMessage);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["throwError"])(this.submitErrorMessage);
     }
     onSubmit() {
         this.isSaving = true;
@@ -723,7 +769,7 @@ let ContactComponent = class ContactComponent {
 };
 ContactComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
 ];
 ContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -762,15 +808,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EducationComponent", function() { return EducationComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
 let EducationComponent = class EducationComponent {
-    constructor() { }
-    ngOnInit() {
-        this.data = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["education"];
+    constructor() {
+        this.data = _config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"].getConfig().educationDetails;
     }
 };
 EducationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -810,15 +854,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExperienceComponent", function() { return ExperienceComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
 let ExperienceComponent = class ExperienceComponent {
-    constructor() { }
-    ngOnInit() {
-        this.data = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["experience"];
+    constructor() {
+        this.data = _config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"].getConfig().experience;
     }
 };
 ExperienceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -858,18 +900,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavBarComponent", function() { return NavBarComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
 let NavBarComponent = class NavBarComponent {
     constructor(elementRef) {
         this.elementRef = elementRef;
+        this.data = _config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"].getConfig().navBarConfig;
         this.isMenuCollapsed = true;
-    }
-    ngOnInit() {
-        this.data = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["navBarConfig"];
     }
     handleCollapse(event, isMenuCollapsed) {
         this.isMenuCollapsed = isMenuCollapsed;
@@ -930,15 +969,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectsComponent", function() { return ProjectsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
 let ProjectsComponent = class ProjectsComponent {
-    constructor() { }
-    ngOnInit() {
-        this.data = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["projects"];
+    constructor() {
+        this.data = _config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"].getConfig().projects;
     }
 };
 ProjectsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -979,8 +1016,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
@@ -988,9 +1024,7 @@ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE_
 let ResumeComponent = class ResumeComponent {
     constructor(domSanitizer) {
         this.domSanitizer = domSanitizer;
-    }
-    ngOnInit() {
-        this.resumeFile = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_3__["resumeFile"];
+        this.resumeFile = _config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"].getConfig().resumeFile;
     }
     getResumeURL() {
         return this.domSanitizer.bypassSecurityTrustResourceUrl(this.resumeFile);
@@ -1036,15 +1070,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SkillsComponent", function() { return SkillsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.service */ "./src/app/config.service.ts");
 
 
 
 let SkillsComponent = class SkillsComponent {
-    constructor() { }
-    ngOnInit() {
-        this.data = _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["skills"];
+    constructor() {
+        this.data = _config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"].getConfig().skills;
     }
 };
 SkillsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1071,20 +1103,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TechConfigPipe", function() { return TechConfigPipe; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/json/config.json */ "./src/assets/json/config.json");
-var _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../assets/json/config.json */ "./src/assets/json/config.json", 1);
+/* harmony import */ var _config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config.service */ "./src/app/config.service.ts");
 
 
 
 let TechConfigPipe = class TechConfigPipe {
     constructor() {
+        this.technologyMap = _config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"].getConfig().technologyMap;
     }
-    transform(techList, ...args) {
-        let transformedList = [];
-        for (let tech of techList) {
-            transformedList.push(_assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["technologyMap"][tech] ? _assets_json_config_json__WEBPACK_IMPORTED_MODULE_2__["technologyMap"][tech] : { title: tech, class: tech });
-        }
-        return transformedList;
+    transform(techList) {
+        return techList.map(tech => (this.technologyMap[tech] ? this.technologyMap[tech] : { title: tech, class: tech }));
     }
 };
 TechConfigPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1106,7 +1134,7 @@ TechConfigPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".tech-icons {\n  font-size: 3rem;\n}\n.tech-icons .list-inline-item i:hover {\n  color: #BD5D38;\n}\n.tech-icons .custom-spring {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/spring-hover.svg\");\n  background-image: url(\"/assets/icon/spring.svg\");\n}\n.tech-icons .custom-spring.clicked, .tech-icons .custom-spring:hover {\n  background-image: url(\"/assets/icon/spring-hover.svg\");\n}\n.tech-icons .custom-jquery {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/jquery-hover.svg\");\n  background-image: url(\"/assets/icon/jquery.svg\");\n}\n.tech-icons .custom-jquery.clicked, .tech-icons .custom-jquery:hover {\n  background-image: url(\"/assets/icon/jquery-hover.svg\");\n}\n.tech-icons .custom-selenium {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/selenium-hover.svg\");\n  background-image: url(\"/assets/icon/selenium.svg\");\n}\n.tech-icons .custom-selenium.clicked, .tech-icons .custom-selenium:hover {\n  background-image: url(\"/assets/icon/selenium-hover.svg\");\n}\n.tech-icons .custom-solr {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/solr-hover.svg\");\n  background-image: url(\"/assets/icon/solr.svg\");\n}\n.tech-icons .custom-solr.clicked, .tech-icons .custom-solr:hover {\n  background-image: url(\"/assets/icon/solr-hover.svg\");\n}\n.tech-icons .custom-dojo {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/dojo-hover.svg\");\n  background-image: url(\"/assets/icon/dojo.svg\");\n}\n.tech-icons .custom-dojo.clicked, .tech-icons .custom-dojo:hover {\n  background-image: url(\"/assets/icon/dojo-hover.svg\");\n}\n.tech-icons .custom-mysql {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/mysql-hover.svg\");\n  background-image: url(\"/assets/icon/mysql.svg\");\n}\n.tech-icons .custom-mysql.clicked, .tech-icons .custom-mysql:hover {\n  background-image: url(\"/assets/icon/mysql-hover.svg\");\n}\n.tech-icons .custom-oracle {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/oracle-hover.svg\");\n  background-image: url(\"/assets/icon/oracle.svg\");\n}\n.tech-icons .custom-oracle.clicked, .tech-icons .custom-oracle:hover {\n  background-image: url(\"/assets/icon/oracle-hover.svg\");\n}\n.tech-icons .custom-teamcity {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/teamcity-hover.svg\");\n  background-image: url(\"/assets/icon/teamcity.svg\");\n}\n.tech-icons .custom-teamcity.clicked, .tech-icons .custom-teamcity:hover {\n  background-image: url(\"/assets/icon/teamcity-hover.svg\");\n}\n.tech-icons .custom-jenkins {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/jenkins-hover.svg\");\n  background-image: url(\"/assets/icon/jenkins.svg\");\n}\n.tech-icons .custom-jenkins.clicked, .tech-icons .custom-jenkins:hover {\n  background-image: url(\"/assets/icon/jenkins-hover.svg\");\n}\n.tech-icons .custom-helm {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/helm-hover.svg\");\n  background-image: url(\"/assets/icon/helm.svg\");\n}\n.tech-icons .custom-helm.clicked, .tech-icons .custom-helm:hover {\n  background-image: url(\"/assets/icon/helm-hover.svg\");\n}\n.tech-icons .custom-openshift {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/openshift-hover.svg\");\n  background-image: url(\"/assets/icon/openshift.svg\");\n}\n.tech-icons .custom-openshift.clicked, .tech-icons .custom-openshift:hover {\n  background-image: url(\"/assets/icon/openshift-hover.svg\");\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93b3Jrc3BhY2VzL3BvcnRmb2xpby9zcmMvYXBwL3RlY2gtbGlzdC90ZWNoLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3RlY2gtbGlzdC90ZWNoLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDSSxlQUFBO0FDREo7QURHSTtFQUNJLGNBQUE7QUNEUjtBRHVCUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSxzREFBQTtFQUNBLGdEQUFBO0FDRlI7QURJUTtFQUVJLHNEQUFBO0FDSFo7QURRUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSxzREFBQTtFQUNBLGdEQUFBO0FDYVI7QURYUTtFQUVJLHNEQUFBO0FDWVo7QURQUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSx3REFBQTtFQUNBLGtEQUFBO0FDNEJSO0FEMUJRO0VBRUksd0RBQUE7QUMyQlo7QUR0QlE7RUFsQkEsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0E7OztHQUFBO0VBSUEsb0RBQUE7RUFDQSw4Q0FBQTtBQzJDUjtBRHpDUTtFQUVJLG9EQUFBO0FDMENaO0FEckNRO0VBbEJBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBOzs7R0FBQTtFQUlBLG9EQUFBO0VBQ0EsOENBQUE7QUMwRFI7QUR4RFE7RUFFSSxvREFBQTtBQ3lEWjtBRHBEUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSxxREFBQTtFQUNBLCtDQUFBO0FDeUVSO0FEdkVRO0VBRUkscURBQUE7QUN3RVo7QURuRVE7RUFsQkEsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0E7OztHQUFBO0VBSUEsc0RBQUE7RUFDQSxnREFBQTtBQ3dGUjtBRHRGUTtFQUVJLHNEQUFBO0FDdUZaO0FEbEZRO0VBbEJBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBOzs7R0FBQTtFQUlBLHdEQUFBO0VBQ0Esa0RBQUE7QUN1R1I7QURyR1E7RUFFSSx3REFBQTtBQ3NHWjtBRGpHUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSx1REFBQTtFQUNBLGlEQUFBO0FDc0hSO0FEcEhRO0VBRUksdURBQUE7QUNxSFo7QURoSFE7RUFsQkEsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0E7OztHQUFBO0VBSUEsb0RBQUE7RUFDQSw4Q0FBQTtBQ3FJUjtBRG5JUTtFQUVJLG9EQUFBO0FDb0laO0FEL0hRO0VBbEJBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBOzs7R0FBQTtFQUlBLHlEQUFBO0VBQ0EsbURBQUE7QUNvSlI7QURsSlE7RUFFSSx5REFBQTtBQ21KWiIsImZpbGUiOiJzcmMvYXBwL3RlY2gtbGlzdC90ZWNoLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIkdGVjaC1saXN0OiBzcHJpbmcganF1ZXJ5IHNlbGVuaXVtIHNvbHIgZG9qbyBteXNxbCBvcmFjbGUgdGVhbWNpdHkgamVua2lucyBoZWxtIG9wZW5zaGlmdDtcblxuLnRlY2gtaWNvbnMge1xuICAgIGZvbnQtc2l6ZTogM3JlbTtcblxuICAgIC5saXN0LWlubGluZS1pdGVtIGk6aG92ZXIge1xuICAgICAgICBjb2xvcjogI0JENUQzODtcbiAgICB9XG5cbiAgICBAbWl4aW4gaWNvbigkbmFtZSkge1xuICAgICAgICB3aWR0aDogNDVweDtcbiAgICAgICAgaGVpZ2h0OiA0NXB4O1xuICAgICAgICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICAgICAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAgICAgICAvKlxuICAgICAgICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAgICAgICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgICAgICAgKi9cbiAgICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcvYXNzZXRzL2ljb24vJysgJG5hbWUgKyAnLWhvdmVyLnN2ZycpO1xuICAgICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy9hc3NldHMvaWNvbi8nKyAkbmFtZSArICcuc3ZnJyk7XG5cbiAgICAgICAgJi5jbGlja2VkLFxuICAgICAgICAmOmhvdmVyIHtcbiAgICAgICAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnL2Fzc2V0cy9pY29uLycrICRuYW1lICsgJy1ob3Zlci5zdmcnKTtcbiAgICAgICAgfVxuICAgIH1cblxuICAgIEBlYWNoICRjdXJyZW50LXRlY2ggaW4gJHRlY2gtbGlzdCB7XG4gICAgICAgIC5jdXN0b20tI3skY3VycmVudC10ZWNofSB7XG4gICAgICAgICAgICBAaW5jbHVkZSBpY29uKCRjdXJyZW50LXRlY2gpO1xuICAgICAgICB9XG4gICAgfVxufSIsIi50ZWNoLWljb25zIHtcbiAgZm9udC1zaXplOiAzcmVtO1xufVxuLnRlY2gtaWNvbnMgLmxpc3QtaW5saW5lLWl0ZW0gaTpob3ZlciB7XG4gIGNvbG9yOiAjQkQ1RDM4O1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1zcHJpbmcge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3NwcmluZy1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9zcHJpbmcuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1zcHJpbmcuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1zcHJpbmc6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vc3ByaW5nLWhvdmVyLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tanF1ZXJ5IHtcbiAgd2lkdGg6IDQ1cHg7XG4gIGhlaWdodDogNDVweDtcbiAgbWFyZ2luLWJvdHRvbTogLTZweDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgLypcbiAgKiAgQWRkZWQgaG92ZXIgaW1hZ2UgaGVyZSBhcyB3ZWxsLCBzbyB0aGF0IGl0IHdpbGwgYmUgbG9hZGVkIG9uIHBhZ2UgbG9hZC5cbiAgKiAgSXQgd2lsbCBwcmV2ZW50IGltYWdlIGxvYWQgb24gaG92ZXIsIHJlc3VsdGluZyBubyBsYWdnaW5nIGluIGhvdmVyIGNhc2UuXG4gICovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9qcXVlcnktaG92ZXIuc3ZnXCIpO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vanF1ZXJ5LnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tanF1ZXJ5LmNsaWNrZWQsIC50ZWNoLWljb25zIC5jdXN0b20tanF1ZXJ5OmhvdmVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2pxdWVyeS1ob3Zlci5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLXNlbGVuaXVtIHtcbiAgd2lkdGg6IDQ1cHg7XG4gIGhlaWdodDogNDVweDtcbiAgbWFyZ2luLWJvdHRvbTogLTZweDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgLypcbiAgKiAgQWRkZWQgaG92ZXIgaW1hZ2UgaGVyZSBhcyB3ZWxsLCBzbyB0aGF0IGl0IHdpbGwgYmUgbG9hZGVkIG9uIHBhZ2UgbG9hZC5cbiAgKiAgSXQgd2lsbCBwcmV2ZW50IGltYWdlIGxvYWQgb24gaG92ZXIsIHJlc3VsdGluZyBubyBsYWdnaW5nIGluIGhvdmVyIGNhc2UuXG4gICovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9zZWxlbml1bS1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9zZWxlbml1bS5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLXNlbGVuaXVtLmNsaWNrZWQsIC50ZWNoLWljb25zIC5jdXN0b20tc2VsZW5pdW06aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vc2VsZW5pdW0taG92ZXIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1zb2xyIHtcbiAgd2lkdGg6IDQ1cHg7XG4gIGhlaWdodDogNDVweDtcbiAgbWFyZ2luLWJvdHRvbTogLTZweDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgLypcbiAgKiAgQWRkZWQgaG92ZXIgaW1hZ2UgaGVyZSBhcyB3ZWxsLCBzbyB0aGF0IGl0IHdpbGwgYmUgbG9hZGVkIG9uIHBhZ2UgbG9hZC5cbiAgKiAgSXQgd2lsbCBwcmV2ZW50IGltYWdlIGxvYWQgb24gaG92ZXIsIHJlc3VsdGluZyBubyBsYWdnaW5nIGluIGhvdmVyIGNhc2UuXG4gICovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9zb2xyLWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3NvbHIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1zb2xyLmNsaWNrZWQsIC50ZWNoLWljb25zIC5jdXN0b20tc29scjpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9zb2xyLWhvdmVyLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tZG9qbyB7XG4gIHdpZHRoOiA0NXB4O1xuICBoZWlnaHQ6IDQ1cHg7XG4gIG1hcmdpbi1ib3R0b206IC02cHg7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIC8qXG4gICogIEFkZGVkIGhvdmVyIGltYWdlIGhlcmUgYXMgd2VsbCwgc28gdGhhdCBpdCB3aWxsIGJlIGxvYWRlZCBvbiBwYWdlIGxvYWQuXG4gICogIEl0IHdpbGwgcHJldmVudCBpbWFnZSBsb2FkIG9uIGhvdmVyLCByZXN1bHRpbmcgbm8gbGFnZ2luZyBpbiBob3ZlciBjYXNlLlxuICAqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vZG9qby1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9kb2pvLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tZG9qby5jbGlja2VkLCAudGVjaC1pY29ucyAuY3VzdG9tLWRvam86aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vZG9qby1ob3Zlci5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLW15c3FsIHtcbiAgd2lkdGg6IDQ1cHg7XG4gIGhlaWdodDogNDVweDtcbiAgbWFyZ2luLWJvdHRvbTogLTZweDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgLypcbiAgKiAgQWRkZWQgaG92ZXIgaW1hZ2UgaGVyZSBhcyB3ZWxsLCBzbyB0aGF0IGl0IHdpbGwgYmUgbG9hZGVkIG9uIHBhZ2UgbG9hZC5cbiAgKiAgSXQgd2lsbCBwcmV2ZW50IGltYWdlIGxvYWQgb24gaG92ZXIsIHJlc3VsdGluZyBubyBsYWdnaW5nIGluIGhvdmVyIGNhc2UuXG4gICovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9teXNxbC1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9teXNxbC5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLW15c3FsLmNsaWNrZWQsIC50ZWNoLWljb25zIC5jdXN0b20tbXlzcWw6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vbXlzcWwtaG92ZXIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1vcmFjbGUge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL29yYWNsZS1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9vcmFjbGUuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1vcmFjbGUuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1vcmFjbGU6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vb3JhY2xlLWhvdmVyLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tdGVhbWNpdHkge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3RlYW1jaXR5LWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3RlYW1jaXR5LnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tdGVhbWNpdHkuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS10ZWFtY2l0eTpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi90ZWFtY2l0eS1ob3Zlci5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLWplbmtpbnMge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2plbmtpbnMtaG92ZXIuc3ZnXCIpO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vamVua2lucy5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLWplbmtpbnMuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1qZW5raW5zOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2plbmtpbnMtaG92ZXIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1oZWxtIHtcbiAgd2lkdGg6IDQ1cHg7XG4gIGhlaWdodDogNDVweDtcbiAgbWFyZ2luLWJvdHRvbTogLTZweDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgLypcbiAgKiAgQWRkZWQgaG92ZXIgaW1hZ2UgaGVyZSBhcyB3ZWxsLCBzbyB0aGF0IGl0IHdpbGwgYmUgbG9hZGVkIG9uIHBhZ2UgbG9hZC5cbiAgKiAgSXQgd2lsbCBwcmV2ZW50IGltYWdlIGxvYWQgb24gaG92ZXIsIHJlc3VsdGluZyBubyBsYWdnaW5nIGluIGhvdmVyIGNhc2UuXG4gICovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9oZWxtLWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2hlbG0uc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1oZWxtLmNsaWNrZWQsIC50ZWNoLWljb25zIC5jdXN0b20taGVsbTpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9oZWxtLWhvdmVyLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tb3BlbnNoaWZ0IHtcbiAgd2lkdGg6IDQ1cHg7XG4gIGhlaWdodDogNDVweDtcbiAgbWFyZ2luLWJvdHRvbTogLTZweDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgLypcbiAgKiAgQWRkZWQgaG92ZXIgaW1hZ2UgaGVyZSBhcyB3ZWxsLCBzbyB0aGF0IGl0IHdpbGwgYmUgbG9hZGVkIG9uIHBhZ2UgbG9hZC5cbiAgKiAgSXQgd2lsbCBwcmV2ZW50IGltYWdlIGxvYWQgb24gaG92ZXIsIHJlc3VsdGluZyBubyBsYWdnaW5nIGluIGhvdmVyIGNhc2UuXG4gICovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9vcGVuc2hpZnQtaG92ZXIuc3ZnXCIpO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vb3BlbnNoaWZ0LnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tb3BlbnNoaWZ0LmNsaWNrZWQsIC50ZWNoLWljb25zIC5jdXN0b20tb3BlbnNoaWZ0OmhvdmVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL29wZW5zaGlmdC1ob3Zlci5zdmdcIik7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".tech-icons {\n  font-size: 3rem;\n}\n.tech-icons .list-inline-item i:hover {\n  color: #BD5D38;\n}\n.tech-icons .custom-spring {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/spring-hover.svg\");\n  background-image: url(\"/assets/icon/spring.svg\");\n}\n.tech-icons .custom-spring.clicked, .tech-icons .custom-spring:hover {\n  background-image: url(\"/assets/icon/spring-hover.svg\");\n}\n.tech-icons .custom-jquery {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/jquery-hover.svg\");\n  background-image: url(\"/assets/icon/jquery.svg\");\n}\n.tech-icons .custom-jquery.clicked, .tech-icons .custom-jquery:hover {\n  background-image: url(\"/assets/icon/jquery-hover.svg\");\n}\n.tech-icons .custom-selenium {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/selenium-hover.svg\");\n  background-image: url(\"/assets/icon/selenium.svg\");\n}\n.tech-icons .custom-selenium.clicked, .tech-icons .custom-selenium:hover {\n  background-image: url(\"/assets/icon/selenium-hover.svg\");\n}\n.tech-icons .custom-solr {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/solr-hover.svg\");\n  background-image: url(\"/assets/icon/solr.svg\");\n}\n.tech-icons .custom-solr.clicked, .tech-icons .custom-solr:hover {\n  background-image: url(\"/assets/icon/solr-hover.svg\");\n}\n.tech-icons .custom-dojo {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/dojo-hover.svg\");\n  background-image: url(\"/assets/icon/dojo.svg\");\n}\n.tech-icons .custom-dojo.clicked, .tech-icons .custom-dojo:hover {\n  background-image: url(\"/assets/icon/dojo-hover.svg\");\n}\n.tech-icons .custom-mysql {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/mysql-hover.svg\");\n  background-image: url(\"/assets/icon/mysql.svg\");\n}\n.tech-icons .custom-mysql.clicked, .tech-icons .custom-mysql:hover {\n  background-image: url(\"/assets/icon/mysql-hover.svg\");\n}\n.tech-icons .custom-oracle {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/oracle-hover.svg\");\n  background-image: url(\"/assets/icon/oracle.svg\");\n}\n.tech-icons .custom-oracle.clicked, .tech-icons .custom-oracle:hover {\n  background-image: url(\"/assets/icon/oracle-hover.svg\");\n}\n.tech-icons .custom-teamcity {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/teamcity-hover.svg\");\n  background-image: url(\"/assets/icon/teamcity.svg\");\n}\n.tech-icons .custom-teamcity.clicked, .tech-icons .custom-teamcity:hover {\n  background-image: url(\"/assets/icon/teamcity-hover.svg\");\n}\n.tech-icons .custom-jenkins {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/jenkins-hover.svg\");\n  background-image: url(\"/assets/icon/jenkins.svg\");\n}\n.tech-icons .custom-jenkins.clicked, .tech-icons .custom-jenkins:hover {\n  background-image: url(\"/assets/icon/jenkins-hover.svg\");\n}\n.tech-icons .custom-helm {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/helm-hover.svg\");\n  background-image: url(\"/assets/icon/helm.svg\");\n}\n.tech-icons .custom-helm.clicked, .tech-icons .custom-helm:hover {\n  background-image: url(\"/assets/icon/helm-hover.svg\");\n}\n.tech-icons .custom-openshift {\n  width: 45px;\n  height: 45px;\n  margin-bottom: -6px;\n  background-size: cover;\n  /*\n  *  Added hover image here as well, so that it will be loaded on page load.\n  *  It will prevent image load on hover, resulting no lagging in hover case.\n  */\n  background-image: url(\"/assets/icon/openshift-hover.svg\");\n  background-image: url(\"/assets/icon/openshift.svg\");\n}\n.tech-icons .custom-openshift.clicked, .tech-icons .custom-openshift:hover {\n  background-image: url(\"/assets/icon/openshift-hover.svg\");\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi93b3Jrc3BhY2VzL3BvcnRmb2xpby9zcmMvYXBwL3RlY2gtbGlzdC90ZWNoLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL3RlY2gtbGlzdC90ZWNoLWxpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDSSxlQUFBO0FDREo7QURHSTtFQUNJLGNBQUE7QUNEUjtBRHVCUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSxzREFBQTtFQUNBLGdEQUFBO0FDRlI7QURJUTtFQUVJLHNEQUFBO0FDSFo7QURRUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSxzREFBQTtFQUNBLGdEQUFBO0FDYVI7QURYUTtFQUVJLHNEQUFBO0FDWVo7QURQUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSx3REFBQTtFQUNBLGtEQUFBO0FDNEJSO0FEMUJRO0VBRUksd0RBQUE7QUMyQlo7QUR0QlE7RUFsQkEsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0E7OztHQUFBO0VBSUEsb0RBQUE7RUFDQSw4Q0FBQTtBQzJDUjtBRHpDUTtFQUVJLG9EQUFBO0FDMENaO0FEckNRO0VBbEJBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBOzs7R0FBQTtFQUlBLG9EQUFBO0VBQ0EsOENBQUE7QUMwRFI7QUR4RFE7RUFFSSxvREFBQTtBQ3lEWjtBRHBEUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSxxREFBQTtFQUNBLCtDQUFBO0FDeUVSO0FEdkVRO0VBRUkscURBQUE7QUN3RVo7QURuRVE7RUFsQkEsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0E7OztHQUFBO0VBSUEsc0RBQUE7RUFDQSxnREFBQTtBQ3dGUjtBRHRGUTtFQUVJLHNEQUFBO0FDdUZaO0FEbEZRO0VBbEJBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBOzs7R0FBQTtFQUlBLHdEQUFBO0VBQ0Esa0RBQUE7QUN1R1I7QURyR1E7RUFFSSx3REFBQTtBQ3NHWjtBRGpHUTtFQWxCQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0VBQ0Esc0JBQUE7RUFDQTs7O0dBQUE7RUFJQSx1REFBQTtFQUNBLGlEQUFBO0FDc0hSO0FEcEhRO0VBRUksdURBQUE7QUNxSFo7QURoSFE7RUFsQkEsV0FBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0E7OztHQUFBO0VBSUEsb0RBQUE7RUFDQSw4Q0FBQTtBQ3FJUjtBRG5JUTtFQUVJLG9EQUFBO0FDb0laO0FEL0hRO0VBbEJBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBOzs7R0FBQTtFQUlBLHlEQUFBO0VBQ0EsbURBQUE7QUNvSlI7QURsSlE7RUFFSSx5REFBQTtBQ21KWiIsImZpbGUiOiJzcmMvYXBwL3RlY2gtbGlzdC90ZWNoLWxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIkdGVjaC1saXN0OiBzcHJpbmcganF1ZXJ5IHNlbGVuaXVtIHNvbHIgZG9qbyBteXNxbCBvcmFjbGUgdGVhbWNpdHkgamVua2lucyBoZWxtIG9wZW5zaGlmdDtcblxuLnRlY2gtaWNvbnMge1xuICAgIGZvbnQtc2l6ZTogM3JlbTtcblxuICAgIC5saXN0LWlubGluZS1pdGVtIGk6aG92ZXIge1xuICAgICAgICBjb2xvcjogI0JENUQzODtcbiAgICB9XG5cbiAgICBAbWl4aW4gaWNvbigkbmFtZSkge1xuICAgICAgICB3aWR0aDogNDVweDtcbiAgICAgICAgaGVpZ2h0OiA0NXB4O1xuICAgICAgICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICAgICAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAgICAgICAvKlxuICAgICAgICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAgICAgICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgICAgICAgKi9cbiAgICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcvYXNzZXRzL2ljb24vJysgJG5hbWUgKyAnLWhvdmVyLnN2ZycpO1xuICAgICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy9hc3NldHMvaWNvbi8nKyAkbmFtZSArICcuc3ZnJyk7XG4gICAgICAgIFxuICAgICAgICAmLmNsaWNrZWQsXG4gICAgICAgICY6aG92ZXIge1xuICAgICAgICAgICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcvYXNzZXRzL2ljb24vJysgJG5hbWUgKyAnLWhvdmVyLnN2ZycpO1xuICAgICAgICB9XG4gICAgfVxuXG4gICAgQGVhY2ggJGN1cnJlbnQtdGVjaCBpbiAkdGVjaC1saXN0IHtcbiAgICAgICAgLmN1c3RvbS0jeyRjdXJyZW50LXRlY2h9IHtcbiAgICAgICAgICAgIEBpbmNsdWRlIGljb24oJGN1cnJlbnQtdGVjaCk7XG4gICAgICAgIH1cbiAgICB9XG59IiwiLnRlY2gtaWNvbnMge1xuICBmb250LXNpemU6IDNyZW07XG59XG4udGVjaC1pY29ucyAubGlzdC1pbmxpbmUtaXRlbSBpOmhvdmVyIHtcbiAgY29sb3I6ICNCRDVEMzg7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLXNwcmluZyB7XG4gIHdpZHRoOiA0NXB4O1xuICBoZWlnaHQ6IDQ1cHg7XG4gIG1hcmdpbi1ib3R0b206IC02cHg7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIC8qXG4gICogIEFkZGVkIGhvdmVyIGltYWdlIGhlcmUgYXMgd2VsbCwgc28gdGhhdCBpdCB3aWxsIGJlIGxvYWRlZCBvbiBwYWdlIGxvYWQuXG4gICogIEl0IHdpbGwgcHJldmVudCBpbWFnZSBsb2FkIG9uIGhvdmVyLCByZXN1bHRpbmcgbm8gbGFnZ2luZyBpbiBob3ZlciBjYXNlLlxuICAqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vc3ByaW5nLWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3NwcmluZy5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLXNwcmluZy5jbGlja2VkLCAudGVjaC1pY29ucyAuY3VzdG9tLXNwcmluZzpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9zcHJpbmctaG92ZXIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1qcXVlcnkge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2pxdWVyeS1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9qcXVlcnkuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1qcXVlcnkuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1qcXVlcnk6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vanF1ZXJ5LWhvdmVyLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tc2VsZW5pdW0ge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3NlbGVuaXVtLWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3NlbGVuaXVtLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tc2VsZW5pdW0uY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1zZWxlbml1bTpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9zZWxlbml1bS1ob3Zlci5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLXNvbHIge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3NvbHItaG92ZXIuc3ZnXCIpO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vc29sci5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLXNvbHIuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1zb2xyOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3NvbHItaG92ZXIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1kb2pvIHtcbiAgd2lkdGg6IDQ1cHg7XG4gIGhlaWdodDogNDVweDtcbiAgbWFyZ2luLWJvdHRvbTogLTZweDtcbiAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgLypcbiAgKiAgQWRkZWQgaG92ZXIgaW1hZ2UgaGVyZSBhcyB3ZWxsLCBzbyB0aGF0IGl0IHdpbGwgYmUgbG9hZGVkIG9uIHBhZ2UgbG9hZC5cbiAgKiAgSXQgd2lsbCBwcmV2ZW50IGltYWdlIGxvYWQgb24gaG92ZXIsIHJlc3VsdGluZyBubyBsYWdnaW5nIGluIGhvdmVyIGNhc2UuXG4gICovXG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9kb2pvLWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2Rvam8uc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1kb2pvLmNsaWNrZWQsIC50ZWNoLWljb25zIC5jdXN0b20tZG9qbzpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9kb2pvLWhvdmVyLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tbXlzcWwge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL215c3FsLWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL215c3FsLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tbXlzcWwuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1teXNxbDpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9teXNxbC1ob3Zlci5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLW9yYWNsZSB7XG4gIHdpZHRoOiA0NXB4O1xuICBoZWlnaHQ6IDQ1cHg7XG4gIG1hcmdpbi1ib3R0b206IC02cHg7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIC8qXG4gICogIEFkZGVkIGhvdmVyIGltYWdlIGhlcmUgYXMgd2VsbCwgc28gdGhhdCBpdCB3aWxsIGJlIGxvYWRlZCBvbiBwYWdlIGxvYWQuXG4gICogIEl0IHdpbGwgcHJldmVudCBpbWFnZSBsb2FkIG9uIGhvdmVyLCByZXN1bHRpbmcgbm8gbGFnZ2luZyBpbiBob3ZlciBjYXNlLlxuICAqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vb3JhY2xlLWhvdmVyLnN2Z1wiKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL29yYWNsZS5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLW9yYWNsZS5jbGlja2VkLCAudGVjaC1pY29ucyAuY3VzdG9tLW9yYWNsZTpob3ZlciB7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9vcmFjbGUtaG92ZXIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS10ZWFtY2l0eSB7XG4gIHdpZHRoOiA0NXB4O1xuICBoZWlnaHQ6IDQ1cHg7XG4gIG1hcmdpbi1ib3R0b206IC02cHg7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIC8qXG4gICogIEFkZGVkIGhvdmVyIGltYWdlIGhlcmUgYXMgd2VsbCwgc28gdGhhdCBpdCB3aWxsIGJlIGxvYWRlZCBvbiBwYWdlIGxvYWQuXG4gICogIEl0IHdpbGwgcHJldmVudCBpbWFnZSBsb2FkIG9uIGhvdmVyLCByZXN1bHRpbmcgbm8gbGFnZ2luZyBpbiBob3ZlciBjYXNlLlxuICAqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vdGVhbWNpdHktaG92ZXIuc3ZnXCIpO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vdGVhbWNpdHkuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS10ZWFtY2l0eS5jbGlja2VkLCAudGVjaC1pY29ucyAuY3VzdG9tLXRlYW1jaXR5OmhvdmVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL3RlYW1jaXR5LWhvdmVyLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tamVua2lucyB7XG4gIHdpZHRoOiA0NXB4O1xuICBoZWlnaHQ6IDQ1cHg7XG4gIG1hcmdpbi1ib3R0b206IC02cHg7XG4gIGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG4gIC8qXG4gICogIEFkZGVkIGhvdmVyIGltYWdlIGhlcmUgYXMgd2VsbCwgc28gdGhhdCBpdCB3aWxsIGJlIGxvYWRlZCBvbiBwYWdlIGxvYWQuXG4gICogIEl0IHdpbGwgcHJldmVudCBpbWFnZSBsb2FkIG9uIGhvdmVyLCByZXN1bHRpbmcgbm8gbGFnZ2luZyBpbiBob3ZlciBjYXNlLlxuICAqL1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vamVua2lucy1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9qZW5raW5zLnN2Z1wiKTtcbn1cbi50ZWNoLWljb25zIC5jdXN0b20tamVua2lucy5jbGlja2VkLCAudGVjaC1pY29ucyAuY3VzdG9tLWplbmtpbnM6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vamVua2lucy1ob3Zlci5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLWhlbG0ge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2hlbG0taG92ZXIuc3ZnXCIpO1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vaGVsbS5zdmdcIik7XG59XG4udGVjaC1pY29ucyAuY3VzdG9tLWhlbG0uY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1oZWxtOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL2hlbG0taG92ZXIuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1vcGVuc2hpZnQge1xuICB3aWR0aDogNDVweDtcbiAgaGVpZ2h0OiA0NXB4O1xuICBtYXJnaW4tYm90dG9tOiAtNnB4O1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xuICAvKlxuICAqICBBZGRlZCBob3ZlciBpbWFnZSBoZXJlIGFzIHdlbGwsIHNvIHRoYXQgaXQgd2lsbCBiZSBsb2FkZWQgb24gcGFnZSBsb2FkLlxuICAqICBJdCB3aWxsIHByZXZlbnQgaW1hZ2UgbG9hZCBvbiBob3ZlciwgcmVzdWx0aW5nIG5vIGxhZ2dpbmcgaW4gaG92ZXIgY2FzZS5cbiAgKi9cbiAgYmFja2dyb3VuZC1pbWFnZTogdXJsKFwiL2Fzc2V0cy9pY29uL29wZW5zaGlmdC1ob3Zlci5zdmdcIik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IHVybChcIi9hc3NldHMvaWNvbi9vcGVuc2hpZnQuc3ZnXCIpO1xufVxuLnRlY2gtaWNvbnMgLmN1c3RvbS1vcGVuc2hpZnQuY2xpY2tlZCwgLnRlY2gtaWNvbnMgLmN1c3RvbS1vcGVuc2hpZnQ6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoXCIvYXNzZXRzL2ljb24vb3BlbnNoaWZ0LWhvdmVyLnN2Z1wiKTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1149,17 +1177,6 @@ TechListComponent = TechListComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__
 ], TechListComponent);
 
 
-
-/***/ }),
-
-/***/ "./src/assets/json/config.json":
-/*!*************************************!*\
-  !*** ./src/assets/json/config.json ***!
-  \*************************************/
-/*! exports provided: resumeFile, navBarConfig, about, experience, education, skills, projects, contact, technologyMap, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"resumeFile\":\"/assets/pdf/Amit_Sargar_Resume.pdf\",\"navBarConfig\":{\"text\":\"Amit Sargar\",\"profilePic\":\"../assets/img/profile.jpg\",\"navItems\":[\"About\",\"Experience\",\"Education\",\"Skills\",\"Projects\",\"Resume\",\"Contact\"]},\"about\":{\"firstName\":\"Amit\",\"lastName\":\"Sargar\",\"email\":\"amitsargar@gmail.com\",\"aboutMe\":\"Hello, welcome to my professional profile. I have a Master of Computer Applications from VJTI, Mumbai, and I am currently working as an Associate Vice President at Deutsche Bank India with approximately 10 years of experience as a Full Stack Java Developer.\",\"socialProfiles\":[{\"name\":\"LinkedIn\",\"link\":\"https://www.linkedin.com/in/amitsargar/\",\"class\":\"fab fa-linkedin\"},{\"name\":\"GitHub\",\"link\":\"https://github.com/asargar/\",\"class\":\"fab fa-github\"},{\"name\":\"Twitter\",\"link\":\"https://twitter.com/amitsargar/\",\"class\":\"fab fa-twitter\"},{\"name\":\"Instagram\",\"link\":\"https://instagram.com/amit.sargar/\",\"class\":\"fab fa-instagram\"}]},\"experience\":{\"list\":[{\"title\":\"Assistant Vice President\",\"company\":\"Deutsche Bank, Pune\",\"start\":\"March, 2020\",\"end\":\"Present\",\"details\":[\"As a Full Stack Developer, I handle development from Angular to Spring Boot and manage deployment as well.\",\"Notably, I developed a generic, configuration-based dashboard adaptable for similar views with minimal effort.\",\"Additionally, I have been involved in migration projects from OCP3 to OCP4 and disaster recovery strategy of applications\"]},{\"title\":\"Consultant\",\"company\":\"Deloitte Consulting, Mumbai\",\"start\":\"Aug, 2018\",\"end\":\"Mar, 2020\",\"details\":[\"Got promoted to Consultant on fast track, as recognition to work towards client and extracurricular activities like <strong>represented Deloitte in Code Gladiator Finals</strong>.\",\"Got recognition and <strong>Applause Award</strong> for project contribution.\",\"Leading the development of various modules of paperless insurance product owned by US based Business Insurance Company.\",\"Full stack development to enhance existing system to introduce new features including upgrading payment gateway SDK and making system PCI compliant.\"]},{\"title\":\"Business Technical Analyst\",\"company\":\"Deloitte Consulting, Mumbai\",\"start\":\"Dec, 2016\",\"end\":\"Aug, 2018\",\"details\":[\"Represented Deloitte in largest coding contest Code Gladiator Finals in 2017 and 2018. Got the highest recognition award in Deloitte for the same. The 2017 coding event recognized by Guinness record for largest coding contest.\",\"Got recognition from Client as well as Deloitte for contribution towards client service.\",\"Development of various modules of the platform/ product for US based public sector client.\",\"Full stack development to enhance existing system to introduce new features.\"]},{\"title\":\"Associate Software Engineer\",\"company\":\"Pragmatix Services Pvt. Ltd., Mumbai\",\"start\":\"Jul, 2015\",\"end\":\"Dec, 2016\",\"details\":[\"Development and integration of various modules like Non-Performing Assets (NPA), Early Warning System (EWS) solutions for Banking client.\",\"Responsible to design, develop and optimize Rule Engine product, which was integral part of NPA and EWS solutions.\",\"Migrating various modules from previous version of the product to new maven based OSGi system.\",\"Involved in the development of various POCs for client demos.\",\"Technologies & Frameworks: Java, Spring MVC, Hibernate, JBPM, SQL, HTML, CSS, JavaScript, Dojo, OSGi, AngularJS\"]},{\"title\":\"Trainee Software Engineer\",\"company\":\"Pragmatix Services Pvt. Ltd., Mumbai\",\"start\":\"Jan, 2015\",\"end\":\"Jun, 2015\",\"details\":[\"Design and develop frontend and backend of Smart Search module.\",\"Design and develop Download Automation solution which allows user to download thousands of files in a click.\",\"Enhancement of the reporting framework module.\",\"Development of autocomplete widget in Dojo.\",\"Received appreciation for the Download Automation project.\",\"Technologies & Frameworks: Java, Spring MVC, Hibernate, SQL, HTML, CSS, JavaScript, Dojo, jQuery, AngularJs\"]}]},\"education\":{\"list\":[{\"college\":\"VJTI, Mumbai\",\"website\":\"https://en.wikipedia.org/wiki/Veermata_Jijabai_Technological_Institute\",\"course\":\"Master of Computer Applications\",\"start\":\"Jul, 2012\",\"end\":\"Jun, 2015\"},{\"college\":\"KWC, Sangli\",\"website\":\"http://www.kwcsangli.in/\",\"course\":\"Bachelor of Computer Science\",\"start\":\"Jul, 2009\",\"end\":\"Mar, 2012\"}]},\"skills\":{\"list\":[{\"title\":\"Programming Skills\",\"techList\":[\"java\",\"javascript\"]},{\"title\":\"Java Frameworks\",\"techList\":[\"spring\",\"selenium\"]},{\"title\":\"Web Technologies\",\"techList\":[\"angular\",\"javascript\",\"html5\",\"css3\",\"sass\"]},{\"title\":\"Database\",\"techList\":[\"mysql\",\"oracle\"]},{\"title\":\"CI/CD\",\"techList\":[\"jenkins\",\"openshift\",\"teamcity\",\"helm\"]}]},\"projects\":{\"list\":[{\"title\":\"Portfolio Dashboard\",\"description\":\"Portfolio dashboard for reviewing portfolios according to the bank's internal policies.\",\"techList\":[\"java\",\"spring\",\"angular\",\"oracle\",\"node\",\"npm\",\"sass\",\"git\",\"jira\",\"jenkins\",\"openshift\",\"teamcity\",\"helm\"]},{\"title\":\"Business Insurance Website\",\"description\":\"US based Business Insurance website with multiple white label partners to purchase and maintain paperless online business insurance. It includes Web application for Agent and actual users to purchase new policy using online payment and maintaining the account to view existing policies.\",\"techList\":[\"java\",\"spring\",\"drupal\",\"php\",\"angular\",\"jquery\",\"html5\",\"css3\",\"node\",\"npm\",\"sass\",\"git\",\"grunt\",\"mysql\",\"jira\"]},{\"title\":\"Department of Motor Vehicle\",\"description\":\"US based public sector project for Registration and Titles System, which includes Web application for Agent and actual users, and batch system to process daily transactions.\",\"techList\":[\"java\",\"spring\",\"jquery\",\"html5\",\"css3\",\"git\",\"jira\"]},{\"title\":\"Rule Engine\",\"description\":\"Data filtering solution depending on rules for NPA (Non-Performing Assets) and EWS (Early Warning System) depending on various nested filtering criteria. It is an integral part of these solutions.\",\"techList\":[\"java\",\"spring\",\"angularjs\",\"html5\",\"css3\"]},{\"title\":\"Non-Performing Assets (NPA)\",\"description\":\"A predictive analysis tool which aids banks to identify the non-performing assets and helps in risk analysis.\",\"techList\":[\"java\",\"spring\",\"angularjs\",\"html5\",\"css3\"]},{\"title\":\"Early Warning System (EWS)\",\"description\":\"Project's main purpose was to alleviate the risks of non-performing loans. It enabled our banking clients to get effective early warnings to protect their assets and reduce the impact of payment delinquency. \",\"techList\":[\"java\",\"spring\",\"angularjs\",\"html5\",\"css3\"]},{\"title\":\"Bank Statement Analysis\",\"description\":\"Tool to extract data into structured table which is required by the ETL job to generate score for loan system.\",\"techList\":[\"java\",\"spring\",\"jquery\",\"html5\",\"css3\"]},{\"title\":\"Download Automation\",\"description\":\"Tool to download thousands of files in a click. It helps user to download files from website, required by the ETL job.\",\"techList\":[\"java\",\"spring\",\"selenium\",\"jquery\",\"html5\",\"css3\"]},{\"title\":\"Smart Search\",\"description\":\"Introduced Smart Search functionality to allow user to tag various resources like reports and dashboards as per requirement for instant search across the whole platform.\",\"techList\":[\"java\",\"spring\",\"solr\",\"dojo\",\"html5\",\"css3\"]}]},\"contact\":{\"action\":\"https://formspree.io/\",\"formId\":\"xjvklygj\"},\"technologyMap\":{\"-description-\":\"Technology map to mention fontawesome classname or direct icon link for unsopported icons\",\"java\":{\"title\":\"Java\",\"class\":\"fab fa-java\"},\"drupal\":{\"title\":\"Drupal\",\"class\":\"fab fa-drupal\"},\"php\":{\"title\":\"PHP\",\"class\":\"fab fa-php\"},\"angular\":{\"title\":\"Angular\",\"class\":\"fab fa-angular\"},\"angularjs\":{\"title\":\"AngularJS\",\"class\":\"fab fa-angular\"},\"javascript\":{\"title\":\"JavaScript\",\"class\":\"fab fa-js-square\"},\"html5\":{\"title\":\"HTML5\",\"class\":\"fab fa-html5\"},\"css3\":{\"title\":\"CCS3\",\"class\":\"fab fa-css3-alt\"},\"node\":{\"title\":\"Node\",\"class\":\"fab fa-node\"},\"npm\":{\"title\":\"NPM\",\"class\":\"fab fa-npm\"},\"sass\":{\"title\":\"SASS\",\"class\":\"fab fa-sass\"},\"git\":{\"title\":\"Git\",\"class\":\"fab fa-git-alt\"},\"grunt\":{\"title\":\"Grunt\",\"class\":\"fab fa-grunt\"},\"jira\":{\"title\":\"Jira\",\"class\":\"fab fa-jira\"},\"spring\":{\"title\":\"Spring\",\"class\":\"fab custom-spring\"},\"jquery\":{\"title\":\"jQuery\",\"class\":\"fab custom-jquery\"},\"selenium\":{\"title\":\"Selenium Webdriver\",\"class\":\"fab custom-selenium\"},\"solr\":{\"title\":\"Apache Solr\",\"class\":\"fab custom-solr\"},\"dojo\":{\"title\":\"Dojo Toolkit\",\"class\":\"fab custom-dojo\"},\"mysql\":{\"title\":\"MySQL\",\"class\":\"fab custom-mysql\"},\"oracle\":{\"title\":\"Oracle\",\"class\":\"fab custom-oracle\"},\"openshift\":{\"title\":\"OpenShift\",\"class\":\"fab custom-openshift\"},\"jenkins\":{\"title\":\"Jenkins\",\"class\":\"fab custom-jenkins\"},\"teamcity\":{\"title\":\"Teamcity\",\"class\":\"fab custom-teamcity\"},\"helm\":{\"title\":\"Helm\",\"class\":\"fab custom-helm\"}}}");
 
 /***/ }),
 
